@@ -17,10 +17,10 @@ logger = logging.getLogger(__name__)
 # Texts “consts”
 TEXTS = {
     'start': 'Send me links one by one, I’ll create download tasks for you',
-    'error_not_owner': 'sorry, I only take orders from my master',
-    'error_link': 'please send me a valid link (magnet or http)',
-    'error_syno': 'an error occurred, please make sure it’s a valid link and try again',
-    'created': 'download task created',
+    'error_not_owner': 'Sorry, I only take orders from my master',
+    'error_link': 'Command not found. Please send me a valid link (magnet or http)',
+    'error_syno': 'An error occurred, please make sure it’s a valid link and try again',
+    'created': 'Download task created',
     'magnet_prefix': 'magnet:?xt=urn:btih:',
     'http_prefix': 'http',
 }
@@ -35,10 +35,6 @@ def start(bot, update):
 def text(bot, update):
     """Handle the user message."""
     
-    update.message.reply_text('Chat ID :')
-    update.message.reply_text(update.message.chat_id)
-    update.message.reply_text('OS env')
-    update.message.reply_text(os.getenv("SYNOLOGY_NAS_BOT_CHAT_ID"))
     # only accept messages from the chat ID specified
     if str(update.message.chat_id) != os.getenv("SYNOLOGY_NAS_BOT_CHAT_ID"):
         update.message.reply_text(TEXTS['error_not_owner'])
