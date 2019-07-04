@@ -16,8 +16,8 @@ logger = logging.getLogger(__name__)
 
 # Texts “consts”
 TEXTS = {
-    'start': 'sent me links one by one, I’ll create download tasks for you',
-    'error_not_owner': 'sorry, I only take orders from my master, get your own bot at https://github.com/idealhack/synologynasbot',
+    'start': 'Send me links one by one, I’ll create download tasks for you',
+    'error_not_owner': 'sorry, I only take orders from my master',
     'error_link': 'please send me a valid link (magnet or http)',
     'error_syno': 'an error occurred, please make sure it’s a valid link and try again',
     'created': 'download task created',
@@ -35,8 +35,8 @@ def start(bot, update):
 def text(bot, update):
     """Handle the user message."""
 
-    # only accept messages from the owner
-    if update.message.from_user.username != os.getenv("SYNOLOGY_NAS_BOT_OWNER"):
+    # only accept messages from the chat ID specified
+    if update.message.chat_id != os.getenv("SYNOLOGY_NAS_BOT_CHAT_ID"):
         update.message.reply_text(TEXTS['error_not_owner'])
         return
 
