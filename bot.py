@@ -40,7 +40,7 @@ def text(bot, update):
     update.message.reply_text('OS env')
     update.message.reply_text(os.getenv("SYNOLOGY_NAS_BOT_CHAT_ID"))
     # only accept messages from the chat ID specified
-    if update.message.chat_id != os.getenv("SYNOLOGY_NAS_BOT_CHAT_ID"):
+    if str(update.message.chat_id) != os.getenv("SYNOLOGY_NAS_BOT_CHAT_ID"):
         update.message.reply_text(TEXTS['error_not_owner'])
         return
 
