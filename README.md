@@ -18,6 +18,7 @@ Note: this bot should be full featured later by wrapping Synology’s CGI-based 
     - `SYNOLOGY_NAS_BOT_URL`: Synology URL, should be this form: `https://id.synology.me:port/webapi/`
     - `SYNOLOGY_NAS_BOT_ACCOUNT`: Synology account name
     - `SYNOLOGY_NAS_BOT_PASSWORD`: Synology account password
+    - `SYNOLOGY_NAS_BOT_CHAT_ID`: Your chat id where your user and bot already joined.
 1. Open your Heroku app **Resources** page, make sure the bot is running.
 1. Talk to your lovely bot, it’s all yours.
 
